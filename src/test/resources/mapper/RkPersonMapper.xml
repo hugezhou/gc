@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.loyal.safe.mapper.RkPersonMapper">
+  <resultMap id="BaseResultMap" type="com.loyal.safe.model.RkPerson">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="back_date" jdbcType="TIMESTAMP" property="backDate" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="record_type" jdbcType="INTEGER" property="recordType" />
+    <result column="street_id" jdbcType="VARCHAR" property="streetId" />
+    <result column="community_id" jdbcType="VARCHAR" property="communityId" />
+    <result column="plot_id" jdbcType="VARCHAR" property="plotId" />
+    <result column="corridor_id" jdbcType="VARCHAR" property="corridorId" />
+    <result column="house_id" jdbcType="VARCHAR" property="houseId" />
+    <result column="floor_num" jdbcType="INTEGER" property="floorNum" />
+    <result column="tenant_num" jdbcType="INTEGER" property="tenantNum" />
+    <result column="isolation_date" jdbcType="TIMESTAMP" property="isolationDate" />
+    <result column="position" jdbcType="INTEGER" property="position" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="code_type" jdbcType="INTEGER" property="codeType" />
+    <result column="control_type" jdbcType="INTEGER" property="controlType" />
+    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="warn_level" jdbcType="INTEGER" property="warnLevel" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="expire_date" jdbcType="TIMESTAMP" property="expireDate" />
+    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
+    <result column="is_builder" jdbcType="VARCHAR" property="isBuilder" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="relation_ship" jdbcType="VARCHAR" property="relationShip" />
+    <result column="where_come" jdbcType="VARCHAR" property="whereCome" />
+    <result column="zk_state" jdbcType="VARCHAR" property="zkState" />
+    <result column="age_num" jdbcType="VARCHAR" property="ageNum" />
+    <result column="cars_code" jdbcType="VARCHAR" property="carsCode" />
+    <result column="cars_num" jdbcType="INTEGER" property="carsNum" />
+    <result column="trash_code" jdbcType="VARCHAR" property="trashCode" />
+    <result column="trash_num" jdbcType="INTEGER" property="trashNum" />
+    <result column="code_number" jdbcType="VARCHAR" property="codeNumber" />
+    <result column="national" jdbcType="VARCHAR" property="national" />
+    <result column="homehold_address" jdbcType="VARCHAR" property="homeholdAddress" />
+    <result column="now_address" jdbcType="VARCHAR" property="nowAddress" />
+    <result column="settle_info" jdbcType="VARCHAR" property="settleInfo" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="police_station" jdbcType="VARCHAR" property="policeStation" />
+    <result column="village_committe" jdbcType="VARCHAR" property="villageCommitte" />
+    <result column="relation_people" jdbcType="VARCHAR" property="relationPeople" />
+    <result column="work_address" jdbcType="VARCHAR" property="workAddress" />
+    <result column="landlord_name" jdbcType="VARCHAR" property="landlordName" />
+    <result column="landlord_phone" jdbcType="VARCHAR" property="landlordPhone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    rp.id as rp_id, rp.name as rp_name, rp.phone as rp_phone, rp.age as rp_age, rp.type as rp_type, 
+    rp.back_date as rp_back_date, rp.sex as rp_sex, rp.record_type as rp_record_type, 
+    rp.street_id as rp_street_id, rp.community_id as rp_community_id, rp.plot_id as rp_plot_id, 
+    rp.corridor_id as rp_corridor_id, rp.house_id as rp_house_id, rp.floor_num as rp_floor_num, 
+    rp.tenant_num as rp_tenant_num, rp.isolation_date as rp_isolation_date, rp.position as rp_position, 
+    rp.source as rp_source, rp.code_type as rp_code_type, rp.control_type as rp_control_type, 
+    rp.parent_id as rp_parent_id, rp.user_id as rp_user_id, rp.warn_level as rp_warn_level, 
+    rp.create_date as rp_create_date, rp.update_date as rp_update_date, rp.expire_date as rp_expire_date, 
+    rp.id_card as rp_id_card, rp.is_builder as rp_is_builder, rp.place as rp_place, rp.relation_ship as rp_relation_ship, 
+    rp.where_come as rp_where_come, rp.zk_state as rp_zk_state, rp.age_num as rp_age_num, 
+    rp.cars_code as rp_cars_code, rp.cars_num as rp_cars_num, rp.trash_code as rp_trash_code, 
+    rp.trash_num as rp_trash_num, rp.code_number as rp_code_number, rp.national as rp_national, 
+    rp.homehold_address as rp_homehold_address, rp.now_address as rp_now_address, rp.settle_info as rp_settle_info, 
+    rp.editor as rp_editor, rp.police_station as rp_police_station, rp.village_committe as rp_village_committe, 
+    rp.relation_people as rp_relation_people, rp.work_address as rp_work_address, rp.landlord_name as rp_landlord_name, 
+    rp.landlord_phone as rp_landlord_phone
+  </sql>
+</mapper>

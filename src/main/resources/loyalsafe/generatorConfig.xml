@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <properties resource="loyalsafe/gen_config.properties"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">
+        <!-- beginningDelimiter和endingDelimiter：指明数据库的用于标记数据库对象名的符号，比如ORACLE就是双引号，MYSQL默认是`反引号； -->
+        <!--<property name="beginningDelimiter" value="`"/>-->
+        <!--<property name="endingDelimiter" value="`"/>-->
+        <property name="beginningDelimiter" value=""/>
+        <property name="endingDelimiter" value=""/>
+
+        <!--自定义插件-->
+        <plugin type="com.wosai.generate.plugin.AliasPlugin">
+            <property name="type" value="${alias.type}"/>
+            <property name="length" value="${alias.length}"/>
+        </plugin>
+        <!--内置插件-->
+        <!--在model中覆写equals和hashcode方法-->
+        <!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />-->
+        <!--在model中实现Serializable,生成serialVersionUID-->
+        <!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />-->
+        <!--来在XXXExample类中生成大小写敏感的LIKE方法-->
+        <!--<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />-->
+        <!--使用正则表达式的方式来重命名生成的XXXExample类-->
+        <!--<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+            <property name="searchString" value="Example$"/>
+            <property name="replaceString" value="Criteria"/>
+        </plugin> -->
+
+        <!--通用mapper插件-->
+        <plugin type="${mapper.plugin}">
+            <property name="mappers" value="${mapper.Mapper}"/>
+        </plugin>
+
+        <plugin type="com.wosai.generate.plugin.ModelPlugin">
+            <property name="superClass" value="${model.superClass}"/>
+            <property name="isSamePackage" value="${model.isSamePackage}"/>
+        </plugin>
+
+        <commentGenerator>
+            <!-- 不生成注释 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库连接-->
+        <jdbcConnection driverClass="${jdbc.driverClassName}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+
+        <javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl">
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="${targetModelPackage}" targetProject="${targetJavaProject}"/>
+
+        <sqlMapGenerator targetPackage="${targetXMLPackage}" targetProject="${targetResourcesProject}"/>
+
+        <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}"
+                             type="XMLMAPPER"/>
+
+        <table tableName="rk_person"
+               schema="loyalsafe"
+               delimitAllColumns="true"
+               enableInsert="false"
+               enableSelectByPrimaryKey="true"
+               enableSelectByExample="false"
+               enableUpdateByPrimaryKey="false"
+               enableUpdateByExample="false"
+               enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false"
+               enableCountByExample="false">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+<!--        <table tableName="%"-->
+<!--               schema=""-->
+<!--               delimitAllColumns="true"-->
+<!--               enableInsert="false"-->
+<!--               enableSelectByPrimaryKey="true"-->
+<!--               enableSelectByExample="false"-->
+<!--               enableUpdateByPrimaryKey="false"-->
+<!--               enableUpdateByExample="false"-->
+<!--               enableDeleteByPrimaryKey="false"-->
+<!--               enableDeleteByExample="false"-->
+<!--               enableCountByExample="false">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wosai.videoconferencing.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.wosai.videoconferencing.model.User">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="company" jdbcType="VARCHAR" property="company"/>
+        <result column="account" jdbcType="VARCHAR" property="account"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="password_text" jdbcType="VARCHAR" property="passwordText"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="wechar" jdbcType="VARCHAR" property="wechar"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="photo" jdbcType="VARCHAR" property="photo"/>
+        <result column="professional" jdbcType="VARCHAR" property="professional"/>
+        <result column="post" jdbcType="VARCHAR" property="post"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="role_id" jdbcType="INTEGER" property="roleId"/>
+        <result column="third_id" jdbcType="INTEGER" property="thirdId"/>
+        <result column="create_user" jdbcType="INTEGER" property="createUser"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="update_user" jdbcType="INTEGER" property="updateUser"/>
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="expire_user" jdbcType="INTEGER" property="expireUser"/>
+        <result column="expire_date" jdbcType="TIMESTAMP" property="expireDate"/>
+    </resultMap>
+
+    <resultMap id="UserResultMap" extends="BaseResultMap" type="com.wosai.videoconferencing.model.User">
+        <!--columnPrefix会添加在BaseResultMap中的每个column前, collection中也一样-->
+        <association columnPrefix="r_" property="role"
+                     resultMap="com.wosai.videoconferencing.mapper.UserMapper.BaseResultMap"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        u.`id` as `u_id`, u.`name` as `u_name`, u.`company` as `u_company`, u.`account` as `u_account`,
+        u.`password` as `u_password`, u.`password_text` as `u_password_text`, u.`phone` as `u_phone`,
+        u.`wechar` as `u_wechar`, u.`email` as `u_email`, u.`status` as `u_status`, u.`photo` as `u_photo`,
+        u.`professional` as `u_professional`, u.`post` as `u_post`, u.`remark` as `u_remark`,
+        u.`role_id` as `u_role_id`, u.`third_id` as `u_third_id`, u.`create_user` as `u_create_user`,
+        u.`create_date` as `u_create_date`, u.`update_user` as `u_update_user`, u.`update_date` as `u_update_date`,
+        u.`expire_user` as `u_expire_user`, u.`expire_date` as `u_expire_date`
+    </sql>
+
+
+    <select id="selectUserAndRole" resultMap="UserResultMap">
+        select <include refid="Base_Column_List"/>,
+        <include refid="com.wosai.videoconferencing.mapper.RoleMapper.Base_Column_List"/>
+        from user u left join role r on u.role_id = r.id
+    </select>
+</mapper>
